@@ -21,7 +21,11 @@ Usage
 
 ### `find_diff.sh`
 
- - `./find_diff.sh n l1 l2` will repeatedly generate sets of `n` triplets, and compare the results of merges with lookaheads `l1` and `l2` to find differences. When a difference is found, the script prints details of the event as well as the triplets that caused it. Default values for `n`, `l1` and `l2` are `10`, `2` and `3` respectively.
+ - `./find_diff.sh n l1 l2` will repeatedly generate sets of `n` triplets, and compare the results of merges with lookaheads `l1` and `l2` to find differences. When a difference is found, the script prints details of the event as well as the triplets that caused it and exits. Default values for `n`, `l1` and `l2` are `10`, `2` and `3` respectively.
+
+### `stat_diff.sh`
+
+ - `./stat_diff.sh n l1 l2` will do the same thing as `./find_diff.sh n l1 l2` except that instead of exiting, it will keep track of differences and continue running with new datasets. Sending an interrupt (Ctrl-C) will cause the script to print the statistics so far and exit. The script will leave behind `last_better[12]_triplets` files (so long the corresponding datasets have been found) so that they can be analyzed after the script has finished.
 
 ### `proof*` files
 
